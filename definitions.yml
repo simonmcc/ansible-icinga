@@ -1,0 +1,17 @@
+- name: Create Host Definitions
+  template: src=templates/hosts_def.j2
+            dest=/etc/icinga/objects/myservergroup.cfg
+            owner=root
+            group=root
+            mode=0644
+  notify:
+   - restart icinga
+
+- name: Create External Host Definitions
+  template: src=templates/external_hosts.j2
+            dest=/etc/icinga/objects/external_hosts.cfg
+            owner=root
+            group=root
+            mode=0644
+  notify:
+   - restart icinga

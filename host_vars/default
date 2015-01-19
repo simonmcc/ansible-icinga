@@ -1,0 +1,37 @@
+---
+adminusers: "icingaadmin,simonm"
+
+external_hosts:
+  - fqdn: "innroad-router.innroad.eu"
+    ipv4: 192.168.10.1
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+  - fqdn: "innroad-qnap.innroad.eu"
+    ipv4: 192.168.10.19
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+  - fqdn: "colour-laser.innroad.eu"
+    ipv4: 192.168.10.17
+    services:
+      - name: http
+      - name: hpjd
+  - fqdn: "hplj4000.innroad.eu"
+    ipv4: 192.168.10.30
+    services:
+      - name: hpjd
+  - fqdn: "www.google.co.uk"
+    ipv4: 216.58.208.35
+    services:
+      - name: http
+      - name: https
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "lo0_ecldsl-bba7.th.eclipse.net.uk"
+    ipv4: 82.153.1.69
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"

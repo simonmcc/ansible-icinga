@@ -1,0 +1,26 @@
+{% for host in external_hosts %}
+define host {
+  use generic-host
+  host_name {{ host['fqdn'] }}
+  address {{ host['ipv4'] }}
+  max_check_attempts 5
+  check_command check-host-alive
+  contact_groups admins
+}
+
+{% set services = host['services']|default([]) %}
+{% for service in services %}
+  {% set service_name = service.name %}
+  {% set service_description = service.name|upper %}
+  {% set check_command = 'check_'+service.name + service.args|default('') %}
+
+define service {
+  use generic-service             ; Name of service template to use
+  host_name                       {{ host['fqdn'] }}
+  service_description             {{ service_description }}
+  check_command                   {{ check_command }}
+}
+
+{% endfor %}
+
+{% endfor %}
