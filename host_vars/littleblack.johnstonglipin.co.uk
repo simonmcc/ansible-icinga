@@ -1,0 +1,81 @@
+---
+adminusers: "icingaadmin,simonm"
+
+external_hosts:
+  - fqdn: "router-jg"
+    ipv4: 10.1.1.220
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+
+  - fqdn: "router-gc"
+    ipv4: 10.1.2.1
+    services:
+      - name: http
+      - name: https
+
+  - fqdn: "kilostream-jg"
+    ipv4: 10.1.1.202
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+
+  - fqdn: "kilostream-gc"
+    ipv4: 10.1.2.202
+    services:
+      - name: ping
+        args: "!45,10%!55,20%"
+
+  - fqdn: "mailserver"
+    ipv4: 10.1.1.178
+    services:
+      - name: rdp
+        check: check_tcp
+        args: "!3389"
+      - name: smtp
+      - name: ping
+        args: "!25,10%!40,20%"
+
+  - fqdn: "ibcos"
+    ipv4: 10.1.1.200
+    services:
+      - name: telnet
+        check: check_tcp
+        args: "!23"
+      - name: http
+      - name: ping
+        args: "!25,10%!40,20%"
+
+  - fqdn: "www.google.co.uk"
+    ipv4: 216.58.208.35
+    services:
+      - name: http
+      - name: https
+      - name: ping
+        args: "!35,10%!40,20%"
+
+  - fqdn: "lo0_ecldsl-bba7.th.eclipse.net.uk"
+    ipv4: 82.153.1.69
+    services:
+      - name: ping
+        args: "!35,10%!40,20%"
+
+  - fqdn: jg-dc01
+    ipv4: 10.1.1.249
+    services:
+      - name: ping
+        args: "!45,10%!55,20%"
+      # This looks up www.google.com against 10.1.1.249 (jg-dc01)
+      - name: dns
+
+  - fqdn: bigblack
+    ipv4: 10.1.2.13
+    services:
+      - name: rdp
+        check: check_tcp
+        args: "!3389"
+      - name: ping
+        args: "!90,10%!120,20%"
+      # This looks up www.google.com against 10.1.2.13 (bigblack)
+      - name: dns

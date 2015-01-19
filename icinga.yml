@@ -1,8 +1,4 @@
 ---
-- hosts: $mygroup
-  gather_facts: yes
-  sudo: yes
-
 - hosts: all
   sudo: yes
 

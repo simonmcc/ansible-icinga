@@ -1,4 +1,4 @@
-{% for host in external_hosts %}
+{% for host in external_hosts|default([]) %}
 define host {
   use generic-host
   host_name {{ host['fqdn'] }}
@@ -12,7 +12,8 @@ define host {
 {% for service in services %}
   {% set service_name = service.name %}
   {% set service_description = service.name|upper %}
-  {% set check_command = 'check_'+service.name + service.args|default('') %}
+  {% set check = service.check|default('check_'+service.name) %}
+  {% set check_command = check + service.args|default('') %}
 
 define service {
   use generic-service             ; Name of service template to use

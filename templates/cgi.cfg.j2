@@ -215,6 +215,7 @@ use_ssl_authentication=0
 # Alternatively you can specify contactgroups too, starting
 # with Icinga 1.5.0
 
+{% set adminusers = adminusers|default('icingaadmin') %}
 authorized_for_system_information={{ adminusers }}
 #authorized_contactgroup_for_system_information=
 
