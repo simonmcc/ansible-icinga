@@ -1,5 +1,15 @@
 ---
-adminusers: "icingaadmin,simonm"
+adminusers: "icingaadmin,simonm,neale"
+users:
+  icingaadmin:
+    password: icinga
+    role: admin
+  simonm:
+    password: icingamenow
+    role: admin
+  neale:
+    password: rallye
+    role: admin
 
 external_hosts:
   - fqdn: "router-jg"

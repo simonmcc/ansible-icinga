@@ -1,5 +1,10 @@
 ---
 adminusers: "icingaadmin,simonm"
+users:
+  icingaadmin:
+    password: icinga
+  simonm:
+    password: icingamenow
 
 external_hosts:
   - fqdn: "innroad-router.innroad.eu"

@@ -1,2 +1,3 @@
 [myservergroup]
-littleblack.johnstonglipin.co.uk ansible_ssh_host=10.1.1.177 ansible_connection=ssh
+#littleblack.johnstonglipin.co.uk ansible_ssh_host=10.1.1.177 ansible_connection=ssh
+littleblack.johnstonglipin.co.uk ansible_ssh_host=jgni.homeip.net ansible_connection=ssh
