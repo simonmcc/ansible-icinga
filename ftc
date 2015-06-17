@@ -1,0 +1,2 @@
+[myservergroup]
+philj-ux1.fc.hp.com ansible_ssh_host=16.78.176.52 ansible_connection=ssh ansible_ssh_user=root
