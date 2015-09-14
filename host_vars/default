@@ -35,3 +35,23 @@ external_hosts:
     services:
       - name: ping
         args: "!25,10%!40,20%"
+  - fqdn: "HomeSignal"
+    ipv4: 192.168.10.10
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-Hall"
+    ipv4: 192.168.10.23
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-TV"
+    ipv4: 192.168.10.36
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-STUDY"
+    ipv4: 192.168.10.15
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"

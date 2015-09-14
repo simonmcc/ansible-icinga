@@ -1,0 +1,2 @@
+[myservergroup]
+ickle.innroad.eu ansible_ssh_host=192.168.10.20 ansible_ssh_user=simonm ansible_connection=ssh

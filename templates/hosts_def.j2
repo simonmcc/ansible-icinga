@@ -1,4 +1,5 @@
-{% for host in groups['myservergroup'] %}
+{% for group in group_names %}
+{% for host in groups[group] %}
 define host {
   use generic-host
   host_name {{ hostvars[host]['ansible_fqdn'] }}
@@ -7,4 +8,5 @@ define host {
   check_command check-host-alive
   contact_groups admins
 }
+{% endfor %}
 {% endfor %}
