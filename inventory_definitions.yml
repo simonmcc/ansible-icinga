@@ -1,0 +1,8 @@
+- name: Create Host Definitions
+  template: src=templates/hosts_def.j2
+            dest=/etc/icinga/objects/myservergroup.cfg
+            owner=root
+            group=root
+            mode=0644
+  notify:
+   - restart icinga

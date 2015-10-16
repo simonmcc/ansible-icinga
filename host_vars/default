@@ -35,15 +35,34 @@ external_hosts:
       - name: http
       - name: https
       - name: ping
-        args: "!25,10%!40,20%"
+        args: "!25,10%!45,20%"
   - fqdn: "lo0_ecldsl-bba7.th.eclipse.net.uk"
     ipv4: 82.153.1.69
     services:
       - name: ping
         args: "!25,10%!40,20%"
+  - fqdn: "HomeSignal"
+    ipv4: 192.168.10.10
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-Hall"
+    ipv4: 192.168.10.23
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-TV"
+    ipv4: 192.168.10.36
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-STUDY"
+    ipv4: 192.168.10.15
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
 
 site_name: VagrantSite
-
 smokeping_step: 60
 
 smokeping_hosts:

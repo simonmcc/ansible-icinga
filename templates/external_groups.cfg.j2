@@ -1,0 +1,21 @@
+# hostgroups for hosts in the external_hosts group
+# TODO: iterate over all hosts & build the list of host groups
+
+{% set discovered_hostgroups = [] %}
+
+{% for host in external_hosts|default([]) %}
+{%   if host['hostgroups'] is defined %}
+{%     for group in host['hostgroups'] %}
+# discovered the {{ group }} by walking the external_hosts dictionary
+{%       do discovered_hostgroups.append(group) %}
+{%     endfor %}
+{%   endif %}
+{% endfor %}
+
+{% for group in discovered_hostgroups|unique %}
+define hostgroup {
+        hostgroup_name  {{ group }}
+        alias           {{ group }}
+        # membership is set on each individual host definition
+        }
+{% endfor %}
