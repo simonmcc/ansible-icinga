@@ -1,4 +1,5 @@
 ---
+
 adminusers: "icingaadmin,simonm"
 users:
   icingaadmin:
@@ -40,3 +41,13 @@ external_hosts:
     services:
       - name: ping
         args: "!25,10%!40,20%"
+
+site_name: VagrantSite
+
+smokeping_step: 60
+
+smokeping_hosts:
+  - title: Google DNS
+    ipv4: 8.8.8.8
+  - title: Eclipse Internet BBA
+    ipv4: dy1_ecldsl-bba5.th.eclipse.net.uk

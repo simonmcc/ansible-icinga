@@ -38,6 +38,9 @@
     - name: Configure /etc/icinga/cgi.cfg
       template: src=templates/cgi.cfg.j2 dest=/etc/icinga/cgi.cfg owner=root group=root mode=0644
 
+  roles:
+    - smokeping
+
   handlers:
    - name: restart icinga
      service: name=icinga state=restarted enabled=yes

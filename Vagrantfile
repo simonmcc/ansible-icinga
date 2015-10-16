@@ -20,7 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # dummy hosts to exercise under Vagrant
     ansible.groups = {
-      "myservergroup" => ["router"]
+      "myservergroup" => ["default"],
+      "monitors" => ["default"]
     }
   end
 end

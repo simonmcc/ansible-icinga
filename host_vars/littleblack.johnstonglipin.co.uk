@@ -1,4 +1,6 @@
 ---
+site_name: "johnstonglipin"
+
 adminusers: "icingaadmin,simonm,neale"
 users:
   icingaadmin:
@@ -80,12 +82,20 @@ external_hosts:
       - name: dns
 
   - fqdn: bigblack
-    ipv4: 10.1.2.13
+    ipv4: 10.1.2.12
     services:
       - name: rdp
         check: check_tcp
         args: "!3389"
       - name: ping
         args: "!90,10%!120,20%"
-      # This looks up www.google.com against 10.1.2.13 (bigblack)
+      # This looks up www.google.com against 10.1.2.12 (bigblack)
       - name: dns
+      # /usr/lib/nagios/plugins/check_http -H 10.1.2.12 --ssl -p 4343 -u /officescan/
+
+  - fqdn: brick
+    ipv4: 10.1.2.13
+    services:
+      - name: ssh
+      - name: ping
+        args: "!90,10%!120,20%"
