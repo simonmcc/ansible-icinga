@@ -5,6 +5,8 @@
   apt: pkg=smokeping force=yes update_cache=yes
   tags: smokeping
 
+- template: src=smokeping.conf.j2 dest=/etc/smokeping/apache2.conf
+
 - name: configure smokeping in /etc/smokeping/config.d
   template: src={{ item }} dest=/etc/smokeping/config.d/{{ item }} owner=root group=root mode=644
   with_items:

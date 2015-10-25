@@ -7,6 +7,9 @@
      - apache2
   tags: apache
 
+- name: enable apache rewrite
+  shell: a2enmod rewrite
+
 - name: configure apache2 so it doesn't complain 'can't determine fqdn'
   lineinfile: dest=/etc/apache2/apache2.conf regexp="{{ ansible_fqdn }}" line="ServerName {{ ansible_fqdn }}"
   notify:

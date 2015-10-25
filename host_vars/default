@@ -35,12 +35,12 @@ external_hosts:
       - name: http
       - name: https
       - name: ping
-        args: "!25,10%!45,20%"
+        args: "!35,10%!50,20%"
   - fqdn: "lo0_ecldsl-bba7.th.eclipse.net.uk"
     ipv4: 82.153.1.69
     services:
       - name: ping
-        args: "!25,10%!40,20%"
+        args: "!30,10%!50,20%"
   - fqdn: "HomeSignal"
     ipv4: 192.168.10.10
     services:
@@ -68,5 +68,7 @@ smokeping_step: 60
 smokeping_hosts:
   - title: Google DNS
     ipv4: 8.8.8.8
-  - title: Eclipse Internet BBA
-    ipv4: dy1_ecldsl-bba5.th.eclipse.net.uk
+  - title: Eclipse Internet BBA5
+    ipv4: 109.176.192.1
+  - title: First hop after BBA
+    ipv4: 91.85.10.17
