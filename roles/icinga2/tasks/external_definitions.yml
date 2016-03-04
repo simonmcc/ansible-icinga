@@ -1,5 +1,5 @@
 - name: Create External Host Definitions
-  template: src=templates/external_hosts.cfg.j2
+  template: src=external_hosts.cfg.j2
             dest=/etc/icinga/objects/external_hosts.cfg
             owner=root
             group=root
@@ -8,7 +8,7 @@
    - restart icinga
 
 - name: Create External Host Group Definitions
-  template: src=templates/external_groups.cfg.j2
+  template: src=external_groups.cfg.j2
             dest=/etc/icinga/objects/external_groups.cfg
             owner=root
             group=root

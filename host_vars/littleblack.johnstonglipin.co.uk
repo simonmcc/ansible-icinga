@@ -1,4 +1,7 @@
 ---
+ansible_ssh_host: jgni.homeip.net
+ansible_connection: ssh
+
 site_name: "johnstonglipin"
 
 adminusers: "icingaadmin,simonm,neale"

@@ -1,0 +1,4 @@
+---
+# handlers file for icinga2
+- name: restart icinga
+  service: name=icinga state=restarted enabled=yes

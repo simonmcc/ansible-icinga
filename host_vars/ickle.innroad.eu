@@ -1,1 +1,85 @@
-default
+---
+ansible_ssh_host: 192.168.10.34
+ansible_ssh_user: simonm
+ansible_connection: ssh
+
+adminusers: "icingaadmin,simonm"
+users:
+  icingaadmin:
+    password: icinga
+  simonm:
+    password: icingamenow
+
+external_hosts:
+  - fqdn: "innroad-router.innroad.eu"
+    ipv4: 192.168.10.1
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+  - fqdn: "innroad-qnap.innroad.eu"
+    ipv4: 192.168.10.19
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+  - fqdn: "colour-laser.innroad.eu"
+    ipv4: 192.168.10.17
+    services:
+      - name: http
+      - name: hpjd
+  - fqdn: "hplj4000.innroad.eu"
+    ipv4: 192.168.10.30
+    services:
+      - name: hpjd
+  - fqdn: "www.google.co.uk"
+    ipv4: 216.58.208.35
+    services:
+      - name: http
+      - name: https
+      - name: ping
+        args: "!35,10%!50,20%"
+  - fqdn: "lo0_ecldsl-bba7.th.eclipse.net.uk"
+    ipv4: 82.153.1.69
+    services:
+      - name: ping
+        args: "!30,10%!50,20%"
+  - fqdn: "HomeSignal"
+    ipv4: 192.168.10.10
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-Hall"
+    ipv4: 192.168.10.23
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-TV"
+    ipv4: 192.168.10.36
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "PLC-STUDY"
+    ipv4: 192.168.10.15
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+
+site_name: InnRoad
+smokeping_step: 60
+
+smokeping_hosts:
+  - title: ROUTER-INNROAD
+    ipv4: 192.168.10.1
+  - title: PLC-HALL
+    ipv4: 192.168.10.23
+  - title: PLC-TV
+    ipv4: 192.168.10.36
+  - title: PLC-STUDY
+    ipv4: 192.168.10.15
+  - title: QNAP-INNROAD
+    ipv4: 192.168.10.19
+  - title: First hop after BBA
+    ipv4: 91.85.10.17
+  - title: Google DNS
+    ipv4: 8.8.8.8

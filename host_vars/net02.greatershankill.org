@@ -1,0 +1,71 @@
+---
+ansible_ssh_host: 192.168.28.150
+ansible_ssh_user: root
+ansible_connection: ssh
+
+adminusers: "icingaadmin,simonm"
+users:
+  icingaadmin:
+    password: icinga
+  simonm:
+    password: icingamenow
+
+external_hosts:
+  - fqdn: "famliytracker.greatershankill.org"
+    ipv4: 192.168.28.87
+    services:
+      - name: ssh
+      - name: http
+  - fqdn: "innroad-router.innroad.eu"
+    ipv4: 192.168.10.1
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+  - fqdn: "innroad-qnap.innroad.eu"
+    ipv4: 192.168.10.19
+    services:
+      - name: ssh
+      - name: http
+      - name: https
+  - fqdn: "colour-laser.innroad.eu"
+    ipv4: 192.168.10.17
+    services:
+      - name: http
+      - name: hpjd
+  - fqdn: "hplj4000.innroad.eu"
+    ipv4: 192.168.10.30
+    services:
+      - name: hpjd
+  - fqdn: "www.google.co.uk"
+    ipv4: 216.58.208.35
+    services:
+      - name: http
+      - name: https
+      - name: ping
+        args: "!35,10%!50,20%"
+  - fqdn: bangor.greatershankill.org
+    ipv4: 192.168.28.251
+    services:
+#      - name: rdp
+      - name: tcp
+        args: "!3389"
+#      - name: https
+#        args: "4343"
+      - name: ping
+        args: "!35,10%!50,20%"
+
+site_name: GSP
+smokeping_step: 60
+
+smokeping_hosts:
+  - title: ROUTER-SC
+    ipv4: 192.168.28.201
+  - title: FILES
+    ipv4: 192.168.28.98
+  - title: GSP-DC02
+    ipv4: 192.168.28.248
+  - title: GSP-BDC03
+    ipv4: 192.168.28.246
+  - title: Google DNS
+    ipv4: 8.8.8.8

@@ -1,0 +1,55 @@
+---
+  - name: install icinga
+    apt: name=icinga update_cache=yes
+
+  - name: install python-passlib (dependency of htpasswd python module)
+    apt: name=python-passlib
+
+  - name: update /etc/icinga/htpasswd.users file
+    htpasswd: path=/etc/icinga/htpasswd.users name={{ item.key }} password={{ item.value.password }}  owner=root group=www-data mode=0640
+    with_dict: users
+
+  # - include: inventory_definitions.yml
+  - include: external_definitions.yml
+    tags:
+      - templates
+
+  - name: Configure /etc/nagios-plugins/config/disk.cfg
+    copy: src=disk.cfg dest=/etc/nagios-plugins/config/disk.cfg owner=root group=root mode=0644
+    notify:
+      - restart icinga
+
+  - name: Configure /etc/icinga/objects/localhost_icinga.cfg
+    copy: src=objects/localhost_icinga.cfg dest=/etc/icinga/objects/localhost_icinga.cfg owner=root group=root mode=0644
+    notify:
+      - restart icinga
+
+  - name: Configure /etc/icinga/cgi.cfg
+    template: src=cgi.cfg.j2 dest=/etc/icinga/cgi.cfg owner=root group=root mode=0644
+    tags:
+      - templates
+
+  # Enable external commands
+  # /etc/init.d/icinga stop
+  # dpkg-statoverride --update --add nagios www-data 2710 /var/lib/icinga/rw
+  # dpkg-statoverride --update --add nagios nagios 751 /var/lib/icinga
+  # /etc/init.d/icinga start
+  - name: Ensure Apache can write to the command file (/var/lib/icinga/rw/icinga.cmd)
+    file: name=/var/lib/icinga owner=nagios group=nagios mode=751
+    notify:
+      - restart icinga
+
+  - name: Ensure www-data has access to the external commands pipe (/var/lib/icinga/rw)
+    file: name=/var/lib/icinga/rw owner=nagios group=www-data mode=2710
+    notify:
+      - restart icinga
+
+  - name: Configure /etc/icinga/icinga.cfg
+    template: src=icinga.cfg.j2 dest=/etc/icinga/icinga.cfg owner=root group=root mode=0644
+    tags:
+      - templates
+    notify:
+      - restart icinga
+
+  - name: Configure /etc/icinga/cgi.cfg
+    template: src=cgi.cfg.j2 dest=/etc/icinga/cgi.cfg owner=root group=root mode=0644

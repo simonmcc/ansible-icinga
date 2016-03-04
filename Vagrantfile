@@ -12,11 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "hashicorp/precise32"
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8081
   config.vm.network "forwarded_port", guest: 443, host: 8443
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "icinga.yml"
+    ansible.playbook = "site.yml"
 
     # dummy hosts to exercise under Vagrant
     ansible.groups = {
