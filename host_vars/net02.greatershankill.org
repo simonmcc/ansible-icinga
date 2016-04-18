@@ -83,8 +83,10 @@ external_hosts:
     ipv4: 192.168.28.11
     services:
       - name: http
-  - fqdn: sc-ap-12-wag102.greatershankill.org
+  - fqdn: lounge-ap01.greatershankill.org
     ipv4: 192.168.28.12
+  - fqdn: lounge-ap02.greatershankill.org
+    ipv4: 192.168.28.13
   - fqdn: graphite.greatershankill.org
     ipv4: 192.168.28.51
     services:
