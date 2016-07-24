@@ -1,4 +1,0 @@
----
-
-- name: restart smokeping
-  service: name=smokeping state=restarted

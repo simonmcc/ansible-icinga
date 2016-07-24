@@ -1,2 +1,6 @@
 .vagrant/
 *.retry
+roles/dhellmann.exim4-sender/
+roles/smokeping
+roles/icinga2/
+.venv/
