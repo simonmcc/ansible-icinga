@@ -15,35 +15,20 @@ external_hosts:
     ipv4: 192.168.28.87
     services:
       - name: ssh
-      - name: http
+      - name: http_url
+        args: "!familytracker.greatershankill.org!http://familytracker.greatershankill.org/phpinfo.php"
   - fqdn: "innroad-router.innroad.eu"
     ipv4: 192.168.10.1
     services:
       - name: ssh
       - name: http
       - name: https
-  - fqdn: "innroad-qnap.innroad.eu"
-    ipv4: 192.168.10.19
-    services:
-      - name: ssh
-      - name: http
-      - name: https
-  - fqdn: "colour-laser.innroad.eu"
-    ipv4: 192.168.10.17
-    services:
-      - name: http
-      - name: hpjd
-  - fqdn: "hplj4000.innroad.eu"
-    ipv4: 192.168.10.30
-    services:
-      - name: hpjd
   - fqdn: "www.google.co.uk"
-    ipv4: 216.58.208.35
+    ipv4: www.google.co.uk
+    check_command: check_icmp
     services:
       - name: http
       - name: https
-      - name: ping
-        args: "!35,10%!50,20%"
   - fqdn: bangor.greatershankill.org
     ipv4: 192.168.28.251
     services:
@@ -141,15 +126,19 @@ external_hosts:
   - fqdn: gsp-bdc03.greatershankill.org
     ipv4: 192.168.28.246
     services:
-#      - name: rdp
       - name: tcp
         args: "!3389"
   - fqdn: gsp-dc02.greatershankill.org
     ipv4: 192.168.28.248
     services:
-#      - name: rdp
       - name: tcp
         args: "!3389"
+  # host81-139-192-1.in-addr.btopenworld.com (81.139.192.1)
+  - fqdn: host81-139-192-1.in-addr.btopenworld.com
+    ipv4: 81.139.192.1
+    services:
+      - name: ping
+        args: "!35,10%!50,20%"
 
 site_name: GSP
 smokeping_step: 60

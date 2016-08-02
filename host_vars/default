@@ -61,22 +61,18 @@ external_hosts:
     services:
       - name: ping
         args: "!25,10%!40,20%"
+  - fqdn: QNAP-INNROAD
+    ipv4: 192.168.10.19
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: Google-DNS
+    ipv4: 8.8.8.8
 
 site_name: VagrantSite
 smokeping_step: 60
 
+# example of host only declared for smokeping monitoring
 smokeping_hosts:
-  - title: ROUTER-INNROAD
-    ipv4: 192.168.10.1
-  - title: PLC-HALL
-    ipv4: 192.168.10.23
-  - title: PLC-TV
-    ipv4: 192.168.10.36
-  - title: PLC-STUDY
-    ipv4: 192.168.10.15
-  - title: QNAP-INNROAD
-    ipv4: 192.168.10.19
-  - title: First hop after BBA
-    ipv4: 91.85.10.17
-  - title: Google DNS
-    ipv4: 8.8.8.8
+  - title: OpenDNS-1
+    ipv4: 208.67.222.222

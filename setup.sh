@@ -10,6 +10,8 @@ else
   source .venv/bin/activate
 fi
 
-pip install --quiet ansible ansible-lint netaddr
+# jinja requires markupsafe, but doesn't correctly declared as a requirement
+# https://github.com/ansible/ansible/issues/13570
+pip install markupsafe ansible ansible-lint netaddr
 
 ansible-galaxy --ignore-errors --roles-path=./roles install -r requirements.yml
