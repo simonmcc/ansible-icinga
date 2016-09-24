@@ -1,0 +1,9 @@
+- src: https://github.com/simonmcc/ansible.icinga
+  name: icinga2
+  version: master
+
+- src: https://github.com/simonmcc/ansible.smokeping
+  name: smokeping
+  version: master
+
+- src: dhellmann.exim4-sender

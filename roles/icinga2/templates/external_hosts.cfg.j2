@@ -7,7 +7,12 @@ define host {
   hostgroups {{ host['hostgroups']|join(',') }}
   {% endif %}
   max_check_attempts 5
+{% if host.check_command is defined %}
+  check_command {{ host.check_command }}
+{% else %}
   check_command check-host-alive
+{% endif %}
+
   contact_groups admins
 }
 

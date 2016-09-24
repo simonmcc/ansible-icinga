@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "hashicorp/precise32"
 
+  # http://127.0.0.1:8081/smokeping/smokeping.cgi
   config.vm.network "forwarded_port", guest: 80, host: 8081
   config.vm.network "forwarded_port", guest: 443, host: 8443
 

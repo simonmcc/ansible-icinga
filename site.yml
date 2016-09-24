@@ -1,10 +1,11 @@
 ---
-- hosts: monitors
-  sudo: yes
+- hosts: all
+  become: yes
 
   roles:
     - smokeping
     - icinga2
+
   tasks:
     - apt: state=absent name="{{ item }}"
       with_items:

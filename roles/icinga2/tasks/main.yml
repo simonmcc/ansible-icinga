@@ -14,6 +14,11 @@
     tags:
       - templates
 
+  - name: Configure /etc/icinga/customs_checks.cfg
+    copy: src=customs_checks.cfg dest=/etc/icinga/customs_checks.cfg owner=root group=root mode=0644
+    notify:
+      - restart icinga
+
   - name: Configure /etc/nagios-plugins/config/disk.cfg
     copy: src=disk.cfg dest=/etc/nagios-plugins/config/disk.cfg owner=root group=root mode=0644
     notify:

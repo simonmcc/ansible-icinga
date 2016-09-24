@@ -71,15 +71,11 @@ smokeping_step: 60
 smokeping_hosts:
   - title: ROUTER-INNROAD
     ipv4: 192.168.10.1
-  - title: PLC-HALL
-    ipv4: 192.168.10.23
-  - title: PLC-TV
-    ipv4: 192.168.10.36
-  - title: PLC-STUDY
-    ipv4: 192.168.10.15
   - title: QNAP-INNROAD
     ipv4: 192.168.10.19
   - title: First hop after BBA
     ipv4: 91.85.10.17
   - title: Google DNS
     ipv4: 8.8.8.8
+  - title: InnRoad-to-Spectrum
+    ipv4: 192.168.28.201
