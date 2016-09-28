@@ -1,2 +1,0 @@
-[monitors]
-ickle.innroad.eu ansible_ssh_host=192.168.10.34 ansible_ssh_user=simonm ansible_connection=ssh
