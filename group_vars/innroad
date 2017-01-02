@@ -40,16 +40,6 @@ external_hosts:
     services:
       - name: ping
         args: "!35,10%!50,20%"
-  - fqdn: "lo0_ecldsl-bba7.th.eclipse.net.uk"
-    ipv4: 82.153.1.69
-    services:
-      - name: ping
-        args: "!30,10%!50,20%"
-  - fqdn: "HomeSignal"
-    ipv4: 192.168.10.10
-    services:
-      - name: ping
-        args: "!25,10%!40,20%"
   - fqdn: "PLC-a508"
     ipv4: 192.168.10.18
     services:

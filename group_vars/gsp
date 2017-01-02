@@ -1,7 +1,4 @@
 ---
-ansible_ssh_host: 192.168.28.150
-ansible_ssh_user: root
-ansible_connection: ssh
 
 adminusers: "icingaadmin,simonm"
 users:
@@ -12,7 +9,7 @@ users:
 
 external_hosts:
   - fqdn: familytracker.greatershankill.org
-    ipv4: 192.168.28.87
+    ipv4: 192.168.28.9
     services:
       - name: ssh
       - name: http_url
@@ -123,6 +120,11 @@ external_hosts:
     ipv4: 192.168.28.172
   - fqdn: axis-00408c9a04de.greatershankill.org
     ipv4: 192.168.28.182
+  - fqdn: netgearCC90E8.greatershankill.org
+    ipv4: 192.168.28.18
+    services:
+      - name: http
+      - name: ping
   - fqdn: gsp-bdc03.greatershankill.org
     ipv4: 192.168.28.246
     services:
