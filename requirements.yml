@@ -6,4 +6,8 @@
   name: smokeping
   version: master
 
+- src: https://github.com/simonmcc/ansible.apache
+  name: apache2
+  version: master
+
 - src: dhellmann.exim4-sender

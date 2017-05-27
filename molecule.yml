@@ -1,0 +1,23 @@
+---
+driver:
+  name: docker
+docker:
+  containers:
+    - name: jdr-monitoring
+      image: 'debian'
+      image_version: jessie
+      ansible_groups:
+        - group1
+
+verifier:
+  name: testinfra
+
+dependency:
+  name: galaxy
+  requirements_file: requirements.yml
+  enabled: True
+
+# ansible.incinga needs the do extension
+ansible:
+  ansiblecfg_defaults:
+    jinja2_extensions: jinja2.ext.do

@@ -7,10 +7,9 @@
     - icinga2
 
   tasks:
-    - apt: state=absent name="{{ item }}"
+    - name: "Ensure mDNS components are removed"
+      apt: state=absent name="{{ item }}"
       with_items:
         - libnss-mdns
         - avahi-daemon
         - salt-minion
-
-    - shell: apt-get autoremove -y
