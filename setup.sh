@@ -14,15 +14,15 @@ if [[ -z "${PYTHON}" ]] ; then
 fi
 
 if [[ -z "${PIP}" ]] ; then
-  echo "Installing pip via get-pip.py user mode (no root access)"
-  wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user
+  echo "Installing pip via get-pip.py (no root access, --prefix=${PWD}/.local)"
+  wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --prefix=${PWD}/.local
   export PATH=${PWD}/.local/bin:$PATH
   PIP=$(which pip)
 fi
 
 if [[ -z "${VIRTUALENV}" ]] && [[ -n "${PIP}" ]] ; then
   echo "Installing virtualenv via pip..."
-  pip install --user virtualenv
+  pip install --prefix=${PWD}/.local virtualenv
 fi
 
 if [[ -d .venv ]]; then
