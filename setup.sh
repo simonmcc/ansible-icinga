@@ -4,19 +4,24 @@
 #
 
 # ensure we have a viable python environment
-EASY_INSTALL=$(which easy_install)
+PYTHON=$(which python)
 PIP=$(which pip)
 VIRTUALENV=$(which virtualenv)
 
-if [[ -z "${EASY_INSTALL}" ]] && [[ -z "${PIP}" ]] ; then
-  echo "Can't find easy_install or pip, all hope is lost"
-  # wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user
+if [[ -z "${PYTHON}" ]] ; then
+  echo "No trace of python found - all hope is lost"
   exit 1
+fi
+
+if [[ -n "${PYTHON}" ]] && [[ -z "${PIP}" ]] ; then
+  echo "Installing pip via get-pip.py user mode (no root access)"
+  wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user
+  export PATH=${PWD}/.local/bin
 fi
 
 if [[ -z "${VIRTUALENV}" ]] && [[ -n "${PIP}" ]] ; then
   echo "Installing virtualenv via pip..."
-  pip install virtualenv
+  pip install --user virtualenv
 fi
 
 if [[ -d .venv ]]; then
