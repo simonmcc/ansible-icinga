@@ -3,6 +3,22 @@
 # setup.sh - setup & activate a python virtualenv
 #
 
+# ensure we have a viable python environment
+EASY_INSTALL=$(which easy_install)
+PIP=$(which pip)
+VIRTUALENV=$(which virtualenv)
+
+if [[ -z "${EASY_INSTALL}" ]] && [[ -z "${PIP}" ]] ; then
+  echo "Can't find easy_install or pip, all hope is lost"
+  # wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user
+  exit 1
+fi
+
+if [[ -z "${VIRTUALENV}" ]] && [[ -n "${PIP}" ]] ; then
+  echo "Installing virtualenv via pip..."
+  pip install virtualenv
+fi
+
 if [[ -d .venv ]]; then
   source .venv/bin/activate
 else

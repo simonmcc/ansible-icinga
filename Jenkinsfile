@@ -3,7 +3,7 @@ node {
   stage('Workspace setup') {
     deleteDir()
     checkout scm
-    sh "virtualenv --system-site-packages .venv"
+    sh "./setup.sh"
   }
   stage('ansible-lint') {}
   stage('Create tarball') {}
