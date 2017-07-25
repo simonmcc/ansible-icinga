@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 #
 # setup.sh - setup & activate a python virtualenv
 #
@@ -13,7 +13,7 @@ if [[ -z "${PYTHON}" ]] ; then
   exit 1
 fi
 
-if [[ -n "${PYTHON}" ]] && [[ -z "${PIP}" ]] ; then
+if [[ -z "${PIP}" ]] ; then
   echo "Installing pip via get-pip.py user mode (no root access)"
   wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user
   export PATH=${PWD}/.local/bin
