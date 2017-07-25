@@ -17,6 +17,7 @@ if [[ -n "${PYTHON}" ]] && [[ -z "${PIP}" ]] ; then
   echo "Installing pip via get-pip.py user mode (no root access)"
   wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user
   export PATH=${PWD}/.local/bin
+  PIP=$(which pip)
 fi
 
 if [[ -z "${VIRTUALENV}" ]] && [[ -n "${PIP}" ]] ; then
