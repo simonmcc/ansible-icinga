@@ -48,6 +48,8 @@ external_hosts:
   - fqdn: sc-ap-05.greatershankill.org
     ipv4: 192.168.28.5
     services:
+  - fqdn: wag-102-family-support
+    ipv4: 192.168.28.72
       - name: http
   - fqdn: net01.greatershankill.org
     ipv4: 192.168.28.8
@@ -121,8 +123,6 @@ external_hosts:
     ipv4: 192.168.28.172
   - fqdn: axis-00408c9a04de.greatershankill.org
     ipv4: 192.168.28.182
-  - fqdn: wag-102-family-support
-    ipv4: 192.168.28.72
   # HP LaserJet P2055dn - Family Support Room
   - fqdn: NPI202201
     ipv4: 192.168.28.84
@@ -166,11 +166,5 @@ smokeping_step: 60
 smokeping_hosts:
   - title: ROUTER-SC
     ipv4: 192.168.28.201
-  - title: FILES
-    ipv4: 192.168.28.98
-  - title: GSP-DC02
-    ipv4: 192.168.28.248
-  - title: GSP-BDC03
-    ipv4: 192.168.28.246
   - title: Google DNS
     ipv4: 8.8.8.8
