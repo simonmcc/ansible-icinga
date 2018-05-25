@@ -40,6 +40,7 @@ external_hosts:
     ipv4: 192.168.28.3
     services:
       - name: http
+  # Infopoint/Ashleigh's feet
   - fqdn: sc-ap-04.greatershankill.org
     ipv4: 192.168.28.4
     services:
@@ -120,6 +121,11 @@ external_hosts:
     ipv4: 192.168.28.172
   - fqdn: axis-00408c9a04de.greatershankill.org
     ipv4: 192.168.28.182
+  - fqdn: wag-102-family-support
+    ipv4: 192.168.28.72
+  # HP LaserJet P2055dn - Family Support Room
+  - fqdn: NPI202201
+    ipv4: 192.168.28.84
   - fqdn: netgearCC90E8.greatershankill.org
     ipv4: 192.168.28.18
     services:
