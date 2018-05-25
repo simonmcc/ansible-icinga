@@ -141,6 +141,18 @@ external_hosts:
     services:
       - name: tcp
         args: "!3389"
+  # Early Years/Alessi Centre
+  - fqdn: earlyyears-router
+    ipv4: 192.168.29.1
+    services:
+      - name: ping
+        args: "!65,10%!80,20%"
+  # Alessi Centre External IP
+  - fqdn: alessi-centre
+    ipv4: 62.30.224.200
+    services:
+      - name: ping
+        args: "!35,10%!50,20%"
   # host81-139-192-1.in-addr.btopenworld.com (81.139.192.1)
   - fqdn: host81-139-192-1.in-addr.btopenworld.com
     ipv4: 81.139.192.1
