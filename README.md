@@ -7,7 +7,7 @@ It's primary use case is to monitor hosts that aren't directly in your ansible i
 	$ cat host_vars/philj-ux1.fc.hp.com
 	---
 	adminusers: "icingaadmin,mccartsi"
-	
+
 	external_hosts:
 	  # HP C7000 iLO OA Card
 	  - fqdn: "FTC-R6N6340-C02-OA"
@@ -27,7 +27,7 @@ It's primary use case is to monitor hosts that aren't directly in your ansible i
 	      - name: ssh
 	      - name: http
 	      - name: https
-	      
+
 So here we have a pair of hosts defined, with ssh, http & https being monitored, service checks are defined in `files/objects/services_icinga.cfg` is they aren't part of the standard set distributed with Icinga.
 
 ## Using the playbook
@@ -39,8 +39,8 @@ You'll note there are currently 2 inventory files, `ftc` and `johnstongilpin`, t
 
 ### Full run:
 
-    ansible-playbook -i ftc icinga.yml 
-        
+    ansible-playbook site.yml -l net02.greatershankill.org --diff
+
 ### Update templates only (and restart if required)
 
-    ansible-playbook -i ftc icinga.yml --tags templates
+    ansible-playbook site.yml -l net02.greatershankill.org --tags templates

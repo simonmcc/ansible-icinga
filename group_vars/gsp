@@ -131,8 +131,8 @@ external_hosts:
     services:
       - name: http
       - name: ping
-  - fqdn: gsp-bdc03.greatershankill.org
-    ipv4: 192.168.28.246
+  - fqdn: gsp-dc03.greatershankill.org
+    ipv4: gsp-dc03.greatershankill.org
     services:
       - name: tcp
         args: "!3389"
