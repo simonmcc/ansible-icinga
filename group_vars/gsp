@@ -8,12 +8,17 @@ users:
     password: icingamenow
 
 external_hosts:
+
   - fqdn: familytracker.greatershankill.org
     ipv4: 192.168.28.9
     services:
       - name: ssh
       - name: http_url
         args: "!familytracker.greatershankill.org!http://familytracker.greatershankill.org/phpinfo.php"
+  # fmaily tracker iLO
+  - fqdn: ilocz133201ay.greatershankill.org
+    ipv4: 192.168.28.93
+
   - fqdn: "innroad-router.innroad.eu"
     ipv4: 192.168.10.1
     services:
@@ -48,9 +53,9 @@ external_hosts:
   - fqdn: sc-ap-05.greatershankill.org
     ipv4: 192.168.28.5
     services:
+      - name: http
   - fqdn: wag-102-family-support
     ipv4: 192.168.28.72
-      - name: http
   - fqdn: net01.greatershankill.org
     ipv4: 192.168.28.8
     services:
@@ -94,8 +99,6 @@ external_hosts:
 #      - name: rdp
       - name: tcp
         args: "!3389"
-  - fqdn: ilocz133201ay.greatershankill.org
-    ipv4: 192.168.28.93
   - fqdn: files.greatershankill.org
     ipv4: 192.168.28.98
     services:
