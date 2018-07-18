@@ -92,12 +92,17 @@ external_hosts:
 # Unifi AP's
 #
   - fqdn: "Unifi-AP-Kitchen"
-    ipv4: 192.168.10.20
+    ipv4: 192.168.10.22
     services:
       - name: ping
         args: "!25,10%!40,20%"
   - fqdn: "Unifi-AP-Study"
-    ipv4: 192.168.10.22
+    ipv4: 192.168.10.24
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "Unifi-AP-LR-FamilyRoom"
+    ipv4: 192.168.10.54
     services:
       - name: ping
         args: "!25,10%!40,20%"
