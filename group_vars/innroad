@@ -32,6 +32,21 @@ external_hosts:
     services:
       - name: ping
         args: "!50,10%!75,20%"
+  - fqdn: router.mculloughtotten.com
+    ipv4: 192.168.24.1
+    services:
+      - name: ping
+        args: "!50,10%!75,20%"
+  - fqdn: router.johnstongilpin.co.uk
+    ipv4: 10.1.1.220
+    services:
+      - name: ping
+        args: "!50,10%!75,20%"
+  - fqdn: router.groundcontrol.co
+    ipv4: 10.1.2.1
+    services:
+      - name: ping
+        args: "!50,10%!75,20%"
 
 #
 # External Sites
