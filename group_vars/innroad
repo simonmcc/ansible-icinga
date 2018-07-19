@@ -53,6 +53,11 @@ external_hosts:
     services:
       - name: ping
         args: "!35,10%!50,20%"
+  - fqdn: "ipv4-c008-bhd001-bt-isp.1.oca.nflxvideo.net"
+    ipv4: 81.130.96.45
+    services:
+      - name: ping
+        args: "!35,10%!50,20%"
 
 #
 # Power Line Controllers
