@@ -19,11 +19,6 @@ external_hosts:
       - name: ssh
       - name: http
       - name: https
-  - fqdn: "colour-laser.innroad.eu"
-    ipv4: 192.168.10.17
-    services:
-      - name: http
-      - name: hpjd
   - fqdn: "hplj4000.innroad.eu"
     ipv4: 192.168.10.30
     services:
