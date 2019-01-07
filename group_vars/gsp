@@ -112,6 +112,12 @@ external_hosts:
       - name: http
       - name: https
     ipv4: 192.168.28.139
+  - fqdn: gsp-bms.greatershankill.org
+    ipv4: 192.168.28.59
+    services:
+      - name: http
+      - name: tcp
+        args: "!3389"
   - fqdn: net02.greatershankill.org
     ipv4: 192.168.28.150
     services:
