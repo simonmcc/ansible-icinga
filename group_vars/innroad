@@ -19,11 +19,6 @@ external_hosts:
       - name: ssh
       - name: http
       - name: https
-  - fqdn: "colour-laser.innroad.eu"
-    ipv4: 192.168.10.17
-    services:
-      - name: http
-      - name: hpjd
   - fqdn: "hplj4000.innroad.eu"
     ipv4: 192.168.10.30
     services:
@@ -36,7 +31,22 @@ external_hosts:
     ipv4: 192.168.28.201
     services:
       - name: ping
-        args: "!25,10%!40,20%"
+        args: "!50,10%!75,20%"
+  - fqdn: router.mculloughtotten.com
+    ipv4: 192.168.24.1
+    services:
+      - name: ping
+        args: "!50,10%!75,20%"
+  - fqdn: router.johnstongilpin.co.uk
+    ipv4: 10.1.1.220
+    services:
+      - name: ping
+        args: "!50,10%!75,20%"
+  - fqdn: router.groundcontrol.co
+    ipv4: 10.1.2.1
+    services:
+      - name: ping
+        args: "!50,10%!75,20%"
 
 #
 # External Sites
@@ -50,6 +60,11 @@ external_hosts:
         args: "!35,10%!50,20%"
   - fqdn: "peer5-hu0-1-0-1.telehouse.ukcore.bt.net"
     ipv4: 195.99.127.21
+    services:
+      - name: ping
+        args: "!35,10%!50,20%"
+  - fqdn: "ipv4-c008-bhd001-bt-isp.1.oca.nflxvideo.net"
+    ipv4: 81.130.96.45
     services:
       - name: ping
         args: "!35,10%!50,20%"
@@ -92,12 +107,17 @@ external_hosts:
 # Unifi AP's
 #
   - fqdn: "Unifi-AP-Kitchen"
-    ipv4: 192.168.10.20
+    ipv4: 192.168.10.22
     services:
       - name: ping
         args: "!25,10%!40,20%"
   - fqdn: "Unifi-AP-Study"
-    ipv4: 192.168.10.22
+    ipv4: 192.168.10.24
+    services:
+      - name: ping
+        args: "!25,10%!40,20%"
+  - fqdn: "Unifi-AP-LR-FamilyRoom"
+    ipv4: 192.168.10.54
     services:
       - name: ping
         args: "!25,10%!40,20%"
