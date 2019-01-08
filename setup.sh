@@ -15,8 +15,13 @@ fi
 
 if [[ -z "${PIP}" ]] ; then
   echo "Installing pip via get-pip.py (no root access, --prefix=${PWD}/.local)"
-  wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --prefix=${PWD}/.local
-  export PATH=${PWD}/.local/bin:${HOME}/.local/bin:$PATH
+  if [ "${_system_name}" == 'OSX' -o $(uname) == "Darwin" ]; then
+    export PATH=${HOME}/Library/Python/2.7/bin:${PATH}
+  else
+    export PATH=${PWD}/.local/bin:${PATH}
+  fi
+  wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
+  python get-pip.py --user
   PIP=$(which pip)
 fi
 
@@ -34,9 +39,9 @@ fi
 
 # jinja requires markupsafe, but doesn't correctly declared as a requirement
 # https://github.com/ansible/ansible/issues/13570
-pip install markupsafe ansible==2.3.1.0 ansible-lint netaddr molecule==1.24
+pip install markupsafe ansible ansible-lint netaddr
 
 # molecule
-pip install molecule==1.24 ptyprocess docker
+# pip install molecule==1.24 ptyprocess docker
 
 ansible-galaxy --ignore-errors --roles-path=./roles install -r requirements.yml

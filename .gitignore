@@ -6,3 +6,4 @@ roles/icinga2/
 .venv/
 .molecule/
 roles/
+get-pip.py

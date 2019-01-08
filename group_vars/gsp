@@ -69,18 +69,10 @@ external_hosts:
     ipv4: 192.168.28.10
     services:
       - name: http
-  - fqdn: sc-ap-11-wg302.greatershankill.org
-    ipv4: 192.168.28.11
-    services:
-      - name: http
   - fqdn: lounge-ap01.greatershankill.org
     ipv4: 192.168.28.12
   - fqdn: lounge-ap02.greatershankill.org
     ipv4: 192.168.28.13
-  - fqdn: graphite.greatershankill.org
-    ipv4: 192.168.28.51
-    services:
-      - name: http
   - fqdn: qnap1.greatershankill.org
     ipv4: 192.168.28.60
     services:
@@ -107,11 +99,22 @@ external_hosts:
         args: "!3389"
   - fqdn: bcm_m50r1.greatershankill.org
     ipv4: 192.168.28.108
+# offline, in storage in halftown road
+#  - fqdn: esxi1.greatershankill.org
+#    services:
+#      - name: http
+#      - name: https
+#    ipv4: 192.168.28.172
   - fqdn: esxi2.greatershankill.org
     services:
       - name: http
       - name: https
     ipv4: 192.168.28.139
+  - fqdn: ml330-g6.greatershankill.org
+    services:
+      - name: http
+      - name: https
+    ipv4: 192.168.28.38
   - fqdn: net02.greatershankill.org
     ipv4: 192.168.28.150
     services:
@@ -119,11 +122,6 @@ external_hosts:
       - name: ssh
   - fqdn: gsp-media.greatershankill.org
     ipv4: 192.168.28.163
-  - fqdn: esxi1.greatershankill.org
-    services:
-      - name: http
-      - name: https
-    ipv4: 192.168.28.172
   - fqdn: axis-00408c9a04de.greatershankill.org
     ipv4: 192.168.28.182
   # HP LaserJet P2055dn - Family Support Room
