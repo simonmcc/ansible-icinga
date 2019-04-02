@@ -166,6 +166,12 @@ external_hosts:
     services:
       - name: ping
         args: "!35,10%!50,20%"
+  # 3rd floor printer, powerline connection
+  - fqdn: skillszone_npi7dd47c.greatershankill.org
+    ipv4: 192.168.28.39
+    services:
+      - name: http
+      - name: ping
 
 site_name: GSP
 smokeping_step: 60
