@@ -138,6 +138,11 @@ external_hosts:
     services:
       - name: http
       - name: ping
+  - fqdn: sc-ap-finance.greatershankill.org
+    ipv4: 192.168.28.241
+    services:
+      - name: http
+      - name: ping
   - fqdn: gsp-dc03.greatershankill.org
     ipv4: gsp-dc03.greatershankill.org
     services:
